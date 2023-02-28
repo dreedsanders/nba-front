@@ -11,7 +11,7 @@ export default class Test1 extends React.Component {
       },
     })
       .then((res) => res.json())
-      .then((users) => console.log(users));
+      .then((users) => console.log(users, "get some"));
   };
   render() {
     return (
