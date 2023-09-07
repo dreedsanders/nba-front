@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-const CreateUser = (props) => {
-              const errormsg = useSelector((state) => state.userState.errormsg);
+export function CreateUser(props) {
           let created = useSelector((state) => state.userState.created);
   return (
     <div className="create-user">
@@ -33,9 +32,7 @@ const CreateUser = (props) => {
       </form>
       {created ? (
         <Navigate to="/signin" />
-      ) : errormsg ? (
-        <strong>{errormsg}</strong>
-      ) : null}
+      ) : <Navigate to="/"/>}
       <div>
         <Link to="/">Home</Link>
       </div>

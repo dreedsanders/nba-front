@@ -1,9 +1,12 @@
+
 const initialState = {
   logged_in: false,
   errormsg: "",
   current_user: {},
   users: {},
   created: false,
+  signIn: false,
+  create_user: false
 };
 
 const userReducer = (state = initialState, action) => {
@@ -11,7 +14,7 @@ const userReducer = (state = initialState, action) => {
     case "CREATE_USER":
       return {
         ...state,
-        created: true
+        created: true,
       };
     case "FAILED":
       return {
@@ -43,6 +46,18 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         hall: true,
+      };
+    case "SIGN":
+      return {
+        ...state,
+        signIn: true,
+        create_user: false
+      };
+    case "CREATE":
+      return {
+        ...state,
+        create_user: true,
+        signIn: false
       };
     case "DELETE":
       return state;
